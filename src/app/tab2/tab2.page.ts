@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PhotoService } from '../services/photo.service';
+import { NavController,AlertController,ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  
+  constructor(public photoService: PhotoService, private modalController:ModalController) {}
+  
+  viewimage(){
+    
+  }
 
-  constructor() {}
-
+  ngOnInit() {
+    this.photoService.loadSaved();
+  }
+  
 }

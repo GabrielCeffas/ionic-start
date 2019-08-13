@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+        Tabela
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+    <div text-center>
+        <ion-button (click)="exportar()">Exportar(CSV)</ion-button>
+    </div>   
+    <div text-center>
+        <ion-button (click)="limpar()">Clear</ion-button>
+    </div>   
+    <ion-grid>
+        <ion-row>
+          <ion-col class="tabela" size="3" >
+            Nome do Produto 
+          </ion-col>
+          <ion-col class="tabela" size="3" >
+              Emoji
+          </ion-col>
+          <ion-col class="tabela" size="3" >
+              Nota
+          </ion-col>
+          <ion-col class="tabela" size="3" >
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let produto of produtos, let i = index">
+          <ion-col class="tabela" size="3" >
+              {{produto.nome}}
+          </ion-col>
+          <ion-col class="tabela" size="3" >
+              {{produto.emoji}}
+          </ion-col>
+          <ion-col class="tabela" size="3" >
+              {{produto.nota}}
+          </ion-col>
+          <ion-col class="tabela" size="3">
+            <ion-button (click)="deletar(i)">Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>
